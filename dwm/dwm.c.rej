@@ -1,0 +1,20 @@
+--- dwm.c
++++ dwm.c
+@@ -1427,7 +1403,7 @@ sendmon(Client *c, Monitor *m)
+ 	detachstack(c);
+ 	c->mon = m;
+ 	c->tags = m->tagset[m->seltags]; /* assign tags of target monitor */
+-	attachaside(c);
++	attach(c);
+ 	attachstack(c);
+ 	focus(NULL);
+ 	arrange(NULL);
+@@ -1915,7 +1891,7 @@ updategeom(void)
+ 				m->clients = c->next;
+ 				detachstack(c);
+ 				c->mon = mons;
+-				attachaside(c);
++				attach(c);
+ 				attachstack(c);
+ 			}
+ 			if (m == selmon)
